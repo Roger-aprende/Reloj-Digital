@@ -1,0 +1,229 @@
+@font-face {
+	font-family: 'ds-digital';
+	src: url(assets/fonts/DS-DIGI.TTF) format(TrueType);
+}
+
+@font-face {
+	font-family: 'anta';
+	src: url(assets/fonts/Anta-Regular.ttf) format(TrueType);
+}
+
+
+*{
+	box-sizing: border-box;
+}
+
+/* :root{
+
+} */
+
+body{
+	position: relative;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #2E475D;
+
+		&::after,
+		&>span{
+			position: absolute;
+			width: 140px;
+			height: 120px;
+			padding: .5rem;
+		}
+
+		&::after{
+			content: '';
+			object-fit: cover;
+			background: url(assets/img/logo-pixeleado.png) 0 0 / cover no-repeat ;
+		}
+
+		&>span{
+			z-index: 1;
+		}
+
+		&>span:hover{
+			cursor: pointer;
+		}
+}
+
+h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+}
+
+ul{
+	margin: 0;
+	padding-left:0;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+.container{
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 410px;
+	height:195px;
+
+	background-color: rgb(75, 190, 136);
+	border-radius: 10px;
+
+
+
+		&::before{
+			content: '';
+		
+			position: absolute;
+			top: 100%;
+		
+			width: 350px;
+			height: 10px;
+			background-color: rgb(88, 87, 87) ;
+		}
+	
+		&::after{
+			content: '';
+			position: absolute;
+			top: calc(100% + 10px);
+			right: 75%;
+		
+			height: 10px;
+			width: 65px;
+			background-color: #01180c;
+			
+			box-shadow: 250px 0 #01180c ;
+		}
+}
+
+
+
+.button{
+	font-size: 'lexend deca';
+	font-size: 12px;
+	font-weight: 800;
+
+	color: #000000a6;
+	background-image: linear-gradient(rgb(182, 182, 182), #868686);
+	
+	border-radius: 3px;
+	box-shadow: 0 3px #5e5d5d;
+	border: none;
+	cursor: pointer;
+
+
+		&:active{
+			transition: box-shadow 0.2s ease;
+			box-shadow: none;
+		}
+}
+
+.button-next{
+	position: absolute;
+	bottom: calc(100% - 27px);
+	right: calc(90% - 50px );
+	padding: 3px 10px;
+ } 
+
+.botonera{
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	position: absolute;
+	right: calc(0% + 4px);
+}
+
+.reloj{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 340px;
+	height:130px;
+	
+	font-family: 'ds-digital';
+	font-size: 4.5rem;
+	
+	color: rgb(75, 241, 75);
+	background-color: rgb(41, 40, 40);
+	border: 5px solid #fff;
+	box-shadow: 5px  5px inset #000000ad, -5px -5px inset #000000ad;
+	border-radius: 5px;
+
+		&>.font-low{
+			align-self: last baseline;	
+			padding: 1.4rem 0;		
+			font-size: 2.5rem;
+		}
+}
+
+.calendario{
+	display: flex;
+	align-items: center;
+	width: 300px;
+	height: 100px;
+
+	font-family: 'anta';
+	font-size: 1.6rem;
+	text-align: center;
+	color: #fff;
+	border:1px inset rgb(90, 88, 88);
+
+
+		&>p{
+			animation-name: aparicion;
+			animation-duration: 4s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+			animation-delay: 5s;
+			animation-direction: alternate-reverse;
+		}
+
+}
+
+@keyframes aparicion {
+	0%{ opacity: 0}
+	100%{ opacity: 1}
+}
+
+@media screen and (min-width:770px){
+	body::after{
+		top: 0;
+		right: 0;
+	}
+
+	body>span{
+		top: 0;
+		right:0;
+		margin:1rem;
+	}
+
+	.calendario{
+		justify-content: center;
+		width: 600px;
+	}
+}
+
+@media screen and (max-width:770px){
+	body::after{
+		bottom: 0;
+		right: 0;	
+	}
+
+	body>span{
+		bottom: 0;
+		right:0;
+	}
+
+}
